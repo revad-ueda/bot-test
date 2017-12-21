@@ -94,25 +94,6 @@ public abstract class RequestParameters {
     }
 
     /**
-     * Validates the given string for tag format if not null. Throws a
-     * BadRequestException if not valid.
-     * 
-     * @param tag
-     *            the given tag string
-     * @throws WebApplicationException
-     */
-    public static void validateTag(String tag) throws WebApplicationException {
-        if (tag != null && !"*".equals(tag)) {
-            try {
-                Long.parseLong(tag);
-            } catch (NumberFormatException e) {
-                throw WebException.badRequest()
-                        .message(CommonParams.ERROR_INVALID_TAG).build();
-            }
-        }
-    }
-
-    /**
      * Validates the content and format of the parameters. Throws
      * BadRequestException if not valid.
      * 
