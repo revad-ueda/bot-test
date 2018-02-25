@@ -1,22 +1,4 @@
-/*******************************************************************************
- *                                                                              
- *  Copyright FUJITSU LIMITED 2016                                           
- *                                                                                                                                 
- *  Creation Date: May 9, 2016                                                      
- *                                                                              
- *******************************************************************************/
 
-package org.oscm.rest.common;
-
-import javax.ws.rs.HeaderParam;
-import javax.ws.rs.PathParam;
-import javax.ws.rs.WebApplicationException;
-
-/**
- * Base class for InjectParams
- * 
- * @author miethaner
- */
 public abstract class RequestParameters {
 
     private int version;
