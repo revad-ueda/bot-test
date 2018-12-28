@@ -1,0 +1,431 @@
+[
+    {
+      "count": 6,
+      "code": [
+        "  compute",
+        "  .",
+        "- get_compute_api_class_name",
+        "+ _get_compute_api_class_name",
+        "  )"
+      ],
+      "trigger": [
+        "compute",
+        ".",
+        "get_compute_api_class_name",
+        ")"
+      ],
+      "trigarable_len": 1,
+      "unadoptable_len": 0,
+      "expected_accuracy": 1.0,
+      "actual_accuracy": 1.0,
+      "rule_sum": 18,
+      "change_sum": 10726,
+      "trigarrable_sum": 137
+    },
+    {
+      "count": 5,
+      "code": [
+        "- block_device_obj",
+        "+ objects"
+      ],
+      "trigger": [
+        "block_device_obj"
+      ],
+      "trigarable_len": 1,
+      "unadoptable_len": 0,
+      "expected_accuracy": 1.0,
+      "actual_accuracy": 1.0
+    },
+    {
+      "count": 5,
+      "code": [
+        "  self",
+        "  .",
+        "- assertFalse",
+        "+ assertNotIn",
+        "- in",
+        "+ ,"
+      ],
+      "trigger": [
+        "self",
+        ".",
+        "assertFalse",
+        "in"
+      ],
+      "trigarable_len": 6,
+      "unadoptable_len": 0,
+      "expected_accuracy": 1.0,
+      "actual_accuracy": 1.0
+    },
+    {
+      "count": 5,
+      "code": [
+        "- itervalues",
+        "+ values"
+      ],
+      "trigger": [
+        "itervalues"
+      ],
+      "trigarable_len": 4,
+      "unadoptable_len": 0,
+      "expected_accuracy": 0.8181818181818182,
+      "except": [
+        "  def iterjobs OPEN_PAREN self , only_unclaimed = False , ensure_fresh = False",
+        "- , endless = False , timeout = None",
+        "  CLOSE_PAREN :",
+        "+ return ZookeeperJobBoardIterator",
+        "- ok_states = ALL_JOB_STATES if only_unclaimed : ok_states = UNCLAIMED_JOB_STATES while True : if ensure_fresh : self . _force_refresh OPEN_PAREN CLOSE_PAREN with self . _job_mutate : known_jobs = list OPEN_PAREN six . itervalues",
+        "  OPEN_PAREN self",
+        "- . _known_jobs",
+        "+ , only_unclaimed = only_unclaimed , ensure_fresh = ensure_fresh",
+        "  CLOSE_PAREN",
+        "- CLOSE_PAREN while not known_jobs and endless : if timeout is None : yield None else : timeout . wait OPEN_PAREN CLOSE_PAREN if ensure_fresh : self . _force_refresh OPEN_PAREN CLOSE_PAREN with self . _job_mutate : known_jobs = list OPEN_PAREN six . itervalues OPEN_PAREN self . _known_jobs CLOSE_PAREN CLOSE_PAREN for job in sorted OPEN_PAREN known_jobs CLOSE_PAREN : try : if job . state in ok_states : yield job except excp . JobFailure : LOG . warn OPEN_PAREN STRING , job . uuid , job . path , exc_info = True CLOSE_PAREN except excp . NotFound : with self . _job_mutate : self . _remove_job OPEN_PAREN job . path CLOSE_PAREN if not endless : break"
+      ],
+      "actual_accuracy": 1.0
+    },
+    {
+      "count": 6,
+      "code": [
+        "- instance_obj",
+        "+ objects"
+      ],
+      "trigger": [
+        "instance_obj"
+      ],
+      "trigarable_len": 1,
+      "unadoptable_len": 0,
+      "expected_accuracy": 0.6,
+      "except": [
+        "+ inst_obj =",
+        "- self . _detach_volume OPEN_PAREN context ,",
+        "  instance_obj . Instance . _from_db_object OPEN_PAREN context ,",
+        "+ instance_obj . Instance OPEN_PAREN CLOSE_PAREN ,",
+        "  instance",
+        "- , bdm",
+        "  CLOSE_PAREN",
+        "- CLOSE_PAREN"
+      ],
+      "actual_accuracy": 1.0
+    },
+    {
+      "count": 21,
+      "code": [
+        "  self .",
+        "- assertTrue",
+        "+ assertIn",
+        "- in",
+        "+ ,"
+      ],
+      "trigger": [
+        "self",
+        ".",
+        "assertTrue",
+        "in"
+      ],
+      "trigarable_len": 22,
+      "unadoptable_len": 0,
+      "expected_accuracy": 0.5675675675675675,
+      "except": [
+        "+ resource3 =",
+        "  self .",
+        "- assertTrue",
+        "+ details_multiple",
+        "  OPEN_PAREN",
+        "- STRING in",
+        "  result3 CLOSE_PAREN",
+        "+ OPEN_BRACKET NUMBER CLOSE_BRACKET"
+      ],
+      "actual_accuracy": 1.0
+    },
+    {
+      "count": 13,
+      "code": [
+        "  self .",
+        "- assertTrue",
+        "+ assertIn",
+        "  OPEN_PAREN STRING",
+        "- in",
+        "+ ,"
+      ],
+      "trigger": [
+        "self",
+        ".",
+        "assertTrue",
+        "OPEN_PAREN",
+        "STRING",
+        "in"
+      ],
+      "trigarable_len": 11,
+      "unadoptable_len": 1,
+      "expected_accuracy": 0.6190476190476191,
+      "except": [
+        "  self .",
+        "- assertTrue",
+        "+ assertIn",
+        "  OPEN_PAREN instance OPEN_BRACKET STRING CLOSE_BRACKET",
+        "- in",
+        "+ ,",
+        "  console_instances CLOSE_PAREN"
+      ],
+      "actual_accuracy": 0.9090909090909091
+    },
+    {
+      "count": 12,
+      "code": [
+        "  from",
+        "+ oslo_config",
+        "- oslo . config",
+        "  import cfg"
+      ],
+      "trigger": [
+        "from",
+        "oslo",
+        ".",
+        "config",
+        "import",
+        "cfg"
+      ],
+      "trigarable_len": 10,
+      "unadoptable_len": 2,
+      "expected_accuracy": 0.9230769230769231,
+      "except": [
+        "  from",
+        "+ oslo_log",
+        "- oslo . config",
+        "  import",
+        "- cfg",
+        "+ log as logging"
+      ],
+      "actual_accuracy": 0.8
+    },
+    {
+      "count": 40,
+      "code": [
+        "- assertEquals",
+        "+ assertEqual"
+      ],
+      "trigger": [
+        "assertEquals"
+      ],
+      "trigarable_len": 17,
+      "unadoptable_len": 4,
+      "expected_accuracy": 0.7407407407407407,
+      "except": [
+        "  self . assertEquals OPEN_PAREN cfg . os_boot_dev ,",
+        "- None",
+        "+ OPEN_BRACKET CLOSE_BRACKET",
+        "  CLOSE_PAREN"
+      ],
+      "actual_accuracy": 0.7647058823529411
+    },
+    {
+      "count": 39,
+      "code": [
+        "  self .",
+        "- assertEquals",
+        "+ assertEqual"
+      ],
+      "trigger": [
+        "self",
+        ".",
+        "assertEquals"
+      ],
+      "trigarable_len": 17,
+      "unadoptable_len": 4,
+      "expected_accuracy": 0.7222222222222222,
+      "except": [
+        "  self . assertEquals OPEN_PAREN cfg . os_boot_dev ,",
+        "- None",
+        "+ OPEN_BRACKET CLOSE_BRACKET",
+        "  CLOSE_PAREN"
+      ],
+      "actual_accuracy": 0.7647058823529411
+    },
+    {
+      "count": 9,
+      "code": [
+        "- q_exc",
+        "+ n_exc"
+      ],
+      "trigger": [
+        "q_exc"
+      ],
+      "trigarable_len": 3,
+      "unadoptable_len": 1,
+      "expected_accuracy": 0.9090909090909091,
+      "except": [
+        "  raise q_exc . NeutronException",
+        "+ OPEN_PAREN CLOSE_PAREN"
+      ],
+      "actual_accuracy": 0.6666666666666666
+    },
+    {
+      "count": 6,
+      "code": [
+        "  raise",
+        "- q_exc",
+        "+ n_exc"
+      ],
+      "trigger": [
+        "raise",
+        "q_exc"
+      ],
+      "trigarable_len": 3,
+      "unadoptable_len": 1,
+      "expected_accuracy": 0.8571428571428571,
+      "except": [
+        "  raise q_exc . NeutronException",
+        "+ OPEN_PAREN CLOSE_PAREN"
+      ],
+      "actual_accuracy": 0.6666666666666666
+    },
+    {
+      "count": 5,
+      "code": [
+        "  self .",
+        "- assert_",
+        "+ assertTrue"
+      ],
+      "trigger": [
+        "self",
+        ".",
+        "assert_"
+      ],
+      "trigarable_len": 3,
+      "unadoptable_len": 1,
+      "expected_accuracy": 0.7142857142857143,
+      "except": [
+        "  self .",
+        "- assert_",
+        "+ assertIn",
+        "  OPEN_PAREN STRING",
+        "- in",
+        "+ ,",
+        "  sample CLOSE_PAREN"
+      ],
+      "actual_accuracy": 0.6666666666666666
+    },
+    {
+      "count": 8,
+      "code": [
+        "  self .",
+        "- assertEqual",
+        "+ assertIsNone",
+        "  OPEN_PAREN",
+        "- None ,"
+      ],
+      "trigger": [
+        "self",
+        ".",
+        "assertEqual",
+        "OPEN_PAREN",
+        "None",
+        ","
+      ],
+      "trigarable_len": 8,
+      "unadoptable_len": 3,
+      "expected_accuracy": 0.6666666666666666,
+      "except": [
+        "  self . assertEqual OPEN_PAREN OPEN_BRACKET OPEN_BRACE STRING : None",
+        "+ , STRING : None",
+        "  CLOSE_BRACE , OPEN_BRACE",
+        "+ STRING : None ,",
+        "  STRING : None CLOSE_BRACE CLOSE_BRACKET , props . get OPEN_PAREN STRING CLOSE_PAREN CLOSE_PAREN"
+      ],
+      "actual_accuracy": 0.625
+    },
+    {
+      "count": 9,
+      "code": [
+        "- xrange",
+        "+ range"
+      ],
+      "trigger": [
+        "xrange"
+      ],
+      "trigarable_len": 11,
+      "unadoptable_len": 5,
+      "expected_accuracy": 0.5555555555555556,
+      "except": [
+        "  for i in xrange OPEN_PAREN",
+        "+ cfg . CONF .",
+        "- num_threads",
+        "+ num_worker_threads",
+        "  CLOSE_PAREN <missing ':'>"
+      ],
+      "actual_accuracy": 0.5454545454545454
+    },
+    {
+      "count": 8,
+      "code": [
+        "  self .",
+        "- assertEqual",
+        "+ assertIsNone",
+        "- , None",
+        "  CLOSE_PAREN"
+      ],
+      "trigger": [
+        "self",
+        ".",
+        "assertEqual",
+        ",",
+        "None",
+        "CLOSE_PAREN"
+      ],
+      "trigarable_len": 5,
+      "unadoptable_len": 3,
+      "expected_accuracy": 0.5333333333333333,
+      "except": [
+        "  self . assertEqual OPEN_PAREN OPEN_BRACKET OPEN_BRACE STRING : None",
+        "+ , STRING : None",
+        "  CLOSE_BRACE , OPEN_BRACE",
+        "+ STRING : None ,",
+        "  STRING : None CLOSE_BRACE CLOSE_BRACKET , props . get OPEN_PAREN STRING CLOSE_PAREN CLOSE_PAREN"
+      ],
+      "actual_accuracy": 0.4
+    },
+    {
+      "count": 11,
+      "code": [
+        "- create_server",
+        "+ create_test_server"
+      ],
+      "trigger": [
+        "create_server"
+      ],
+      "trigarable_len": 4,
+      "unadoptable_len": 3,
+      "expected_accuracy": 0.8,
+      "except": [
+        "  self . create_server OPEN_PAREN",
+        "- flavorRef",
+        "+ flavor_ref",
+        "  = - NUMBER CLOSE_PAREN"
+      ],
+      "actual_accuracy": 0.25
+    },
+    {
+      "count": 13,
+      "code": [
+        "- ,",
+        "+ as",
+        "  e :"
+      ],
+      "trigger": [
+        ",",
+        "e",
+        ":"
+      ],
+      "trigarable_len": 10,
+      "unadoptable_len": 9,
+      "expected_accuracy": 0.5416666666666666,
+      "except": [
+        "  except",
+        "+ OPEN_PAREN",
+        "  exception . TooManyInstances , exception . QuotaError",
+        "+ CLOSE_PAREN",
+        "  as e :"
+      ],
+      "actual_accuracy": 0.1
+    }
+  ]
