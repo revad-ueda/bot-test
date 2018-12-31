@@ -18,11 +18,7 @@ import javax.servlet.*;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.oscm.internal.cache.MarketplaceConfiguration;
-import org.oscm.internal.intf.ConfigurationService;
-import org.oscm.internal.intf.MarketplaceService;
-import org.oscm.internal.vo.VOUserDetails;
-import org.oscm.types.constants.marketplace.Marketplace;
+
 import org.oscm.ui.beans.BaseBean;
 import org.oscm.ui.common.Constants;
 import org.oscm.ui.common.EJBServiceAccess;
