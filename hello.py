@@ -1,2 +1,3 @@
- self.assertFalse(a in b)
-rdfvalue()
+print("hello world")
+for a in xrange(bbb.a):
+	  print(a)
