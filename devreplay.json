@@ -12,7 +12,7 @@
       ],
       "consequent": [
         "import six",
-        "\tfor $0 in six.moves.range($1.$2):"
+        "\tfor $0 in six.moves.range($1):"
       ],
       "identifiers": {
         "condition": [
