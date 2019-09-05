@@ -1,2 +1,2 @@
- self.assertFalse(a in b)
-rdfvalue()
+for aaa in xrange(bbb):
+			 pass
